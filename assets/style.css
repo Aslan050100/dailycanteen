@@ -80,3 +80,9 @@ a[href^="mailto"]{overflow-wrap:anywhere}
   .about__img{max-width:min(420px,100%);margin:0 auto}
 }
 @media (max-width:480px){.top__phone{font-size:14px}.brand small{display:none}}
+
+.lang{display:flex;gap:4px;font-size:14px}
+.lang a,.lang span{padding:4px 8px;border-radius:6px;text-decoration:none;color:var(--muted)}
+.lang span{background:var(--orange);color:#fff;font-weight:700}
+@media (max-width:900px){.top__in{gap:12px}.lang{margin-left:auto}}
+@media (max-width:480px){.top__phone{display:none}}
