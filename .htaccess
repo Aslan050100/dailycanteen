@@ -1,0 +1,22 @@
+DirectoryIndex index.html
+AddDefaultCharset UTF-8
+AddType image/webp .webp
+Options -Indexes
+
+<IfModule mod_rewrite.c>
+RewriteEngine On
+# www -> без www
+RewriteCond %{HTTP_HOST} ^www\.dailycanteen\.kz$ [NC]
+RewriteRule ^(.*)$ %{REQUEST_SCHEME}://dailycanteen.kz/$1 [R=301,L]
+# Перенаправление на HTTPS. Раскомментируйте ДВЕ строки ниже ТОЛЬКО ПОСЛЕ выпуска SSL-сертификата:
+# RewriteCond %{HTTPS} off
+# RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
+</IfModule>
+
+<IfModule mod_expires.c>
+ExpiresActive On
+ExpiresByType image/webp "access plus 30 days"
+ExpiresByType image/png "access plus 30 days"
+ExpiresByType image/jpeg "access plus 30 days"
+ExpiresByType text/css "access plus 7 days"
+</IfModule>
