@@ -6,6 +6,12 @@ AddType font/woff2 .woff2
 Options -Indexes
 ErrorDocument 404 /404.html
 
+# Служебные файлы репозитория не отдаём (сайт разворачивается из git)
+<FilesMatch "^(README\.md|check-live\.sh|\.gitignore)$">
+Require all denied
+</FilesMatch>
+RedirectMatch 404 /\.git
+
 <IfModule mod_rewrite.c>
 RewriteEngine On
 # www -> без www
