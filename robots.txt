@@ -1,4 +1,42 @@
+# Сайт открыт для всех поисковых и AI-роботов
 User-agent: *
+Allow: /
+
+# Поисковые системы
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: YandexBot
+Allow: /
+
+# Meta: превью ссылок в WhatsApp / Facebook и проверка домена
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: meta-externalagent
+Allow: /
+
+# OpenAI: поиск ChatGPT и переходы пользователей
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+# Другие AI-ассистенты
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: PerplexityBot
 Allow: /
 
 Sitemap: https://dailycanteen.kz/sitemap.xml

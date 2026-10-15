@@ -1,22 +1,39 @@
 DirectoryIndex index.html
 AddDefaultCharset UTF-8
 AddType image/webp .webp
+AddType application/xml .xml
+AddType font/woff2 .woff2
 Options -Indexes
+ErrorDocument 404 /404.html
 
 <IfModule mod_rewrite.c>
 RewriteEngine On
 # www -> без www
 RewriteCond %{HTTP_HOST} ^www\.dailycanteen\.kz$ [NC]
 RewriteRule ^(.*)$ %{REQUEST_SCHEME}://dailycanteen.kz/$1 [R=301,L]
+# /index.html -> / (без дублей страниц)
+RewriteCond %{THE_REQUEST} \s/+(.*/)?index\.html[\s?] [NC]
+RewriteRule ^ /%1 [R=301,L]
 # Перенаправление на HTTPS. Раскомментируйте ДВЕ строки ниже ТОЛЬКО ПОСЛЕ выпуска SSL-сертификата:
 # RewriteCond %{HTTPS} off
 # RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
 </IfModule>
 
+<IfModule mod_headers.c>
+Header always set X-Content-Type-Options "nosniff"
+Header always set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
+
+<IfModule mod_deflate.c>
+AddOutputFilterByType DEFLATE text/html text/css text/plain application/xml application/javascript image/svg+xml
+</IfModule>
+
 <IfModule mod_expires.c>
 ExpiresActive On
+ExpiresByType text/html "access plus 0 seconds"
 ExpiresByType image/webp "access plus 30 days"
 ExpiresByType image/png "access plus 30 days"
 ExpiresByType image/jpeg "access plus 30 days"
 ExpiresByType text/css "access plus 7 days"
+ExpiresByType font/woff2 "access plus 1 year"
 </IfModule>

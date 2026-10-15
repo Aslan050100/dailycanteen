@@ -16,6 +16,16 @@
 4. Когда https://dailycanteen.kz открывается без ошибки, раскомментируйте в `.htaccess`
    две строки перенаправления на HTTPS.
 
+## SEO и проверка после загрузки
+
+Уже настроено: robots.txt (открыт для Google, Яндекс, Bing, Meta, OAI-SearchBot, ChatGPT, Claude, Perplexity),
+sitemap.xml с языковыми версиями, canonical и hreflang, meta robots (404 — noindex), schema.org (Organization, WebSite,
+WebPage, BreadcrumbList), Open Graph и Twitter Card, страница 404, редиректы www и /index.html, сжатие и кеширование.
+
+После загрузки и включения SSL запустите `bash check-live.sh` (нужен только curl): скрипт проверит коды ответов,
+редиректы, robots.txt, sitemap.xml и доступ для роботов, в том числе OAI-SearchBot.
+Затем добавьте сайт в Google Search Console и Яндекс Вебмастер и отправьте sitemap.xml.
+
 ## Meta (Facebook)
 
 - Подтверждение домена: Business Manager → Настройки компании → Безопасность бренда → Домены → добавить dailycanteen.kz.
