@@ -1,6 +1,6 @@
 # Daily Canteen — сайт-визитка
 
-Статический сайт ТОО «Daily canteen» (БИН 200140012296), бренд Rabbit Canteen.
+Статический сайт ТОО «Daily Canteen» (БИН 200140012296), бренд Rabbit Canteen.
 Основная цель — подтверждение компании в Meta Business Manager для WhatsApp Business API.
 
 Языки: русский (корень), казахский (`kk/`), английский (`en/`).
